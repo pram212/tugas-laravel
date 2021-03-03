@@ -440,3 +440,12 @@
     </div>
 
     @endsection
+
+    @push('script')
+    <script>
+      $(function () {
+        $("#example1").DataTable();
+      });
+    </script>
+
+    @endpush

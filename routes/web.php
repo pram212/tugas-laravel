@@ -11,8 +11,17 @@
 |
 */
 
-Route::get('/', 'HomeController@showHome');
 
+// tugas laravel hari ke 3
+Route::get('/', function(){
+	return view('table');
+});
+
+Route::get('/datatables', function(){
+	return view('datatables');
+});
+
+// tugas laravel hari ke 2
 Route::get('/register', 'AuthController@showForm');
 
 Route::get('/welcome', 'AuthController@showWelcomePage');
