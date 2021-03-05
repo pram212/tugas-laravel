@@ -9,10 +9,30 @@
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
+
+|--------------------------------------------------------------------------
+
+|--------------------------------------------------------------------------
+| Route tugas laravel "Routing dan Controller"
+|--------------------------------------------------------------------------
+| Membuat route
+|
 */
 
+Route::get('/register', 'AuthController@showForm');
 
-// tugas laravel hari ke 3
+Route::get('/welcome', 'AuthController@showWelcomePage');
+
+Route::post('/welcome', 'AuthController@getFullName');
+
+/*
+|--------------------------------------------------------------------------
+| Route tugas laravel "Templating Blade"
+|--------------------------------------------------------------------------
+| Membuat route untuk menerapkan templating blade adminLTE
+|
+*/
+
 Route::get('/', function(){
 	return view('table');
 });
@@ -21,9 +41,24 @@ Route::get('/datatables', function(){
 	return view('datatables');
 });
 
-// tugas laravel hari ke 2
-Route::get('/register', 'AuthController@showForm');
+/*
+|--------------------------------------------------------------------------
+| Route tugas laravel "CRUD"
+|--------------------------------------------------------------------------
+| Membuat route CRUD database
+|
+*/
 
-Route::get('/welcome', 'AuthController@showWelcomePage');
+Route::get('/pertanyaan', 'PertanyaanController@index');
 
-Route::post('/welcome', 'AuthController@getFullName');
+Route::get('/pertanyaan/create', 'PertanyaanController@create');
+
+Route::post('/pertanyaan', 'PertanyaanController@store');
+
+Route::get('/pertanyaan/{pertanyaan_id}', 'PertanyaanController@show');
+ 
+Route::get('/pertanyaan/{pertanyaan_id}/edit', 'PertanyaanController@edit');
+
+Route::put('/pertanyaan/{pertanyaan_id}', 'PertanyaanController@update');
+
+Route::delete('/pertanyaan/{pertanyaan_id}', 'PertanyaanController@destroy');
